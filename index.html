@@ -22,7 +22,8 @@
         </style>
         
     	<script>
-           
+            var titulo = document.getElementById("titulo").value;
+            var autor = document.getElementById("autor").value;
 
         	document.addEventListener("deviceready", onDeviceReady, false);
             
@@ -97,7 +98,7 @@
         	}
             
         	function agregarItemSQL(tx){
-            	tx.executeSql('INSERT INTO libros (titulo, autor) VALUES ("'+$titulo+'", "'+$autor+'")', [] , leerBD, errorBD);
+            	tx.executeSql('INSERT INTO libros (titulo, autor) VALUES ("'+document.getElementById("titulo")+'", "'+document.getElementById("titulo")+'")', [] , leerBD, errorBD);
                 alert("item insertado");
         	}
             
