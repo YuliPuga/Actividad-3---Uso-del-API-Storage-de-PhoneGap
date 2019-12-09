@@ -98,7 +98,7 @@
         	}
             
         	function agregarItemSQL(tx){
-            	tx.executeSql('INSERT INTO libros (titulo, autor) VALUES ("'$titulo'", "'$autor'")', [] , leerBD, errorBD);
+            	tx.executeSql('INSERT INTO libros (titulo, autor) VALUES ("'+titulo+'", "'+autor+'")', [] , leerBD, errorBD);
                 alert("item insertado");
         	}
             
