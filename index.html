@@ -94,11 +94,14 @@
         	}
             
         	function agregarItem(){
+			
              	db.transaction(agregarItemSQL, errorBD)
         	}
             
         	function agregarItemSQL(tx){
-            	tx.executeSql('INSERT INTO libros (titulo, autor) VALUES ('+document.getElementById("titulo")+', '+document.getElementById("titulo")+')', [] , leerBD, errorBD);
+			var titulo = ("#titulo");
+			var autor = ("#autor");
+            	tx.executeSql('INSERT INTO libros (titulo, autor) VALUES (autor, titulo)', [] , leerBD, errorBD);
                 alert("item insertado");
         	}
             
@@ -120,11 +123,11 @@
 	<body >
         <hr>
         <p>Escribe el titulo</p>
-        <input type="text" autocomplete="off" name="titulo" required> </div>
+        <input type="text" id="titulo" placeholder="Titulo" autocomplete="off" name="titulo" required> </div>
        
 
        <p>Escribe el autor</p>
-       <input type="text" autocomplete="off" name="autor" required> </div>
+       <input type="text" id="autor" placeholder="Autor" autocomplete="off" name="autor" required> </div>
 
         
         <hr>
