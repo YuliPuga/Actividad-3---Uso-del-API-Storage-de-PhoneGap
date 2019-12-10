@@ -20,7 +20,8 @@
             ul{margin:0; padding:0; font-size:12px}
             li{list-style-type:none; padding:10px 0; border-bottom: solid 1px #ccc }
         </style>
-        
+        <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+	<script type="text/javascript" src="jquery.js"></script>
     	<script>
             var titulo = document.getElementById("titulo").value;
             var autor = document.getElementById("autor").value;
@@ -104,6 +105,31 @@
             	tx.executeSql('INSERT INTO libros (titulo, autor) VALUES (autor, titulo)', [] , leerBD, errorBD);
                 alert("item insertado");
         	}
+		
+$("#insertar").click(function(){
+  var autor=$("#autor").val(); //trayendo los valores de los textinputs
+  var titulo=$("#titulo").val();
+  
+  myDB.transaction(function(transaction) {
+        var executeQuery = "INSERT INTO regalos (autor, titulo) VALUES (?,?)";            //consulta SQL
+        transaction.executeSql(executeQuery, [autor,titulo]
+            , function(tx, result) {
+                navigator.notification.alert('Datos insertados con éxito', // Subtitulo de la ventanita o cuerpo
+          vacia,
+          'Inserción', // Titulo de la ventanita
+          'Aceptar' // Etiqueta del boton
+          );
+            },
+            function(error){
+              navigator.notification.alert('Ocurrió un error al insertar los datos', // Subtitulo de la ventanita o cuerpo
+          vacia,
+          'Error', // Titulo de la ventanita
+          'Aceptar' // Etiqueta del boton
+          );
+            });
+    });
+});
+		
             
         	function borarUltimo(){
             	db.transaction(borrarItemSQL, errorBD)
@@ -132,7 +158,7 @@
         
         <hr>
         <button onclick="leerBaseDeDatos()"> leer Base de datos </button>
-    	<button onclick="agregarItem()"> Insertar nuevo libro</button><br>
+    	<button id="insertar"> Insertar nuevo libro</button><br>
 
     	<button onclick=" borarUltimo()"> Borrar libros de Oscar Wilde</button>
         
