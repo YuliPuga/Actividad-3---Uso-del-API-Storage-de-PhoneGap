@@ -104,7 +104,10 @@
             }
             
             function borrarItemSQL(tx){
-                tx.executeSql('DELETE FROM libros WHERE autor="Oscar Wilde"', [] , leerBD, errorBD);
+                
+                var autor = document.getElementById("autor").value;
+                
+                tx.executeSql('DELETE FROM libros WHERE autor="'+  autor+'")', [] , leerBD, errorBD);
                 alert("Elemento borrado");
             }
             
