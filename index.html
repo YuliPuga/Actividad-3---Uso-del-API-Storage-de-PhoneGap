@@ -45,7 +45,7 @@
                 
                 
                 // si no existe la tabla libros, la crea y agrega 2 columnas.
-                tx.executeSql('CREATE TABLE IF NOT EXISTS libros ( titulo, autor)');
+                tx.executeSql('CREATE TABLE IF NOT EXISTS libros ( id integer primary key, titulo, autor)');
                 
                 
                 // Una vez creada la tabla, inserta entradas en ella
@@ -89,6 +89,7 @@
                 var lista = ""
                 for(var a=0; a < resultados.rows.length; a++){
                     lista += "<li>"
+		    lista += "<b>Id:</b> " + resultados.rows.item(a).id + "<br>";
                     lista += "<b>Titulo:</b> " + resultados.rows.item(a).titulo + "<br>";
                     lista += "<b>Autor:</b> " + resultados.rows.item(a).autor + "<br>";
                     lista += "</li>"
@@ -129,24 +130,23 @@
             </script>
     </head>
     <body >
-	    	<center>
-<h1 style="color: white;">Biblioteca</h1>
+	<center>
+	<h1 style="color: white;">Biblioteca</h1>
 	</center>
         
         <p>Escribe el titulo</p>
-        <input type="text" id="titulo" placeholder="Titulo" autocomplete="off" name="titulo" required> </div>
+        <input type="text" id="titulo" placeholder="Titulo...." autocomplete="off" name="titulo" required> </div>
 
         <p>Escribe el autor</p>
-        <input type="text" id="autor" placeholder="Autor" autocomplete="off" name="autor" required> </div>
-        
+        <input type="text" id="autor" placeholder="Autor....." autocomplete="off" name="autor" required> </div>
+	<p></p>        
+
         <button id="leer" onclick="leerBaseDeDatos()"> leer Base de datos </button>
         <button id="insertar" onclick="agregarItem()"> Insertar nuevo libro</button><br>
         <button id="Borra" onclick=" borarUltimo()"> Borrar libros de Oscar Wilde</button>
         
         <h1> Libros </h1>
-        <ul id="listaDeLibros">
-            
+        <ul id="listaDeLibros">        
         </ul>
-        
     </body>
 </html>
