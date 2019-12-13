@@ -117,9 +117,9 @@
             
             function borrarItemSQL(tx){
                 
-                var autor = document.getElementById("autor").value;
+                var id = document.getElementById("id").value;
                 
-                tx.executeSql('DELETE FROM libros WHERE autor = "'+autor+'"', [] , leerBD, errorBD);
+                tx.executeSql('DELETE FROM libros WHERE id = "'+id+'"', [] , leerBD, errorBD);
                 alert("Elemento borrado");
             }
             
@@ -133,10 +133,11 @@
             
             function actualizarr(tx){
                 
+		var id = document.getElementById("id").value;
 		var titulo = document.getElementById("titulo").value;
                 var autor = document.getElementById("autor").value;
 		    
-		tx.executeSql('UPDATE libros SET titulo="'+titulo+'", autor="'+autor+'" WHERE autor = "'+autor+'"', [] , leerBD, errorBD);
+		tx.executeSql('UPDATE libros SET id="'+id+'", titulo="'+titulo+'", autor="'+autor+'" WHERE id = "'+id+'"', [] , leerBD, errorBD);
                 alert("item insertado");    
 		
 		    
@@ -160,7 +161,10 @@
 	<h1 style="color: white;">Biblioteca</h1>
 	</center>
         
-        <p>Escribe el titulo</p>
+        <p>Escribe el id</p>
+        <input type="text" id="id" placeholder="Id...." autocomplete="off" name="id" required> </div>   
+	
+	<p>Escribe el titulo</p>
         <input type="text" id="titulo" placeholder="Titulo...." autocomplete="off" name="titulo" required> </div>
 
         <p>Escribe el autor</p>
@@ -169,8 +173,7 @@
 
         <button id="leer" onclick="leerBaseDeDatos()"> leer Base de datos </button>
         <button id="insertar" onclick="agregarItem()"> Insertar nuevo libro</button><br>
-        <button id="Borra" onclick=" borarUltimo()"> Borrar libros (Escribe el autor)</button>}
-	<button id="BorraTabla" onclick=" borartabla()"> Borrar Tabla</button>
+        <button id="Borra" onclick=" borarUltimo()"> Borrar libros (Escribe el autor)</button>
 	<button id="Actualizar" onclick=" actualizar()"> Actualizar</button>
         
         <h1> Libros </h1>
