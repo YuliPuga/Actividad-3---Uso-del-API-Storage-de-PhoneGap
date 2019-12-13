@@ -92,10 +92,10 @@
             
             function agregarItemSQL(tx){
 
-                var titulo = $(#titulo).val();
-                var autor = $(#autor).val();
+                var titulo = document.getElementById("titulo").value;
+                var autor = document.getElementById("autor").value;
 
-                tx.executeSql("INSERT INTO libros (titulo, autor) VALUES ('"+titulo+"','"+autor+"')", [] , leerBD, errorBD);
+                tx.executeSql('INSERT INTO libros (titulo, autor) VALUES (" + titulo + "," + autor + ")', [] , leerBD, errorBD);
                 alert("item insertado");
             }
             
