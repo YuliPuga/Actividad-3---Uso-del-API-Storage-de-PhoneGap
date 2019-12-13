@@ -126,6 +126,32 @@
             function errorBD(){
                 alert("un error en la base de datos");
             }
+		
+	function actualizar(){
+                db.transaction(actualizarr, errorBD)
+            }
+            
+            function actualizarr(tx){
+                
+		var titulo = document.getElementById("titulo").value;
+                var autor = document.getElementById("autor").value;
+		    
+		tx.executeSql('UPDATE libros SET titulo="'+titulo+'", autor="'+autor+'" WHERE autor = "'+autor+'"', [] , leerBD, errorBD);
+                alert("item insertado");    
+		
+		    
+            }
+		
+	function borartabla(){
+                db.transaction(borrarta, errorBD)
+            }
+            
+            function borratabla(tx){
+                                
+                tx.executeSql('DROP TABLE IF EXISTS libros ');
+                alert("Elemento borrado");
+            }
+	
             
             </script>
     </head>
@@ -143,7 +169,9 @@
 
         <button id="leer" onclick="leerBaseDeDatos()"> leer Base de datos </button>
         <button id="insertar" onclick="agregarItem()"> Insertar nuevo libro</button><br>
-        <button id="Borra" onclick=" borarUltimo()"> Borrar libros de Oscar Wilde</button>
+        <button id="Borra" onclick=" borarUltimo()"> Borrar libros (Escribe el autor)</button>}
+	<button id="BorraTabla" onclick=" borartabla()"> Borrar Tabla</button>
+	<button id="Actualizar" onclick=" actualizar()"> Actualizar</button>
         
         <h1> Libros </h1>
         <ul id="listaDeLibros">        
