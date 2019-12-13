@@ -14,6 +14,53 @@
             
             ul{margin:0; padding:0; font-size:12px}
             li{list-style-type:none; padding:10px 0; border-bottom: solid 1px #ccc }
+            
+     *{
+	    font-family: Verdana;
+	    padding: 0% 1%;
+        }
+            
+        body{
+            background-color: #bfd1e5; 
+            }
+
+         #createTable{
+             background-color: #146b3a; 
+             font-weight: bold; 
+             font-size: 150%; 
+             color: white; 
+             width: 100%; 
+             border:none;
+            }
+            
+        #insertar{
+            background-color: #146b3a; 
+            font-weight: bold; 
+            font-size: 150%; 
+            color: white; 
+            width: 100%; 
+            border:none;}
+            
+        #leer{
+            background-color: #146b3a; 
+            font-weight: bold; 
+            font-size: 150%; 
+            color: white; 
+            width: 100%; 
+            border:none;}
+            
+table{background-color: #146b3a;font-weight: bold; font-size: 90%; color: white; width: 100%;}
+#DropTable{background-image: url(botoneliminar.png); font-weight: bold; font-size: 150%; color: #2e3c7c; width: 100%; border:none;}
+table td a {text-decoration: none; color: white; background-color: teal;}
+
+    img{
+        width: 50%;
+        height: auto;
+        display: block;
+  	    margin-left: auto;
+  	    margin-right: auto;
+        }
+            
         </style>
         
         <script>
@@ -125,10 +172,9 @@
         <p>Escribe el autor</p>
         <input type="text" id="autor" placeholder="Autor" autocomplete="off" name="autor" required> </div>
         
-        <button onclick="leerBaseDeDatos()"> leer Base de datos </button>
-        <button onclick="agregarItem()"> Insertar nuevo libro</button><br>
-
-        <button onclick=" borarUltimo()"> Borrar libros de Oscar Wilde</button>
+        <button id="leer" onclick="leerBaseDeDatos()"> leer Base de datos </button>
+        <button id="insertar" onclick="agregarItem()"> Insertar nuevo libro</button><br>
+        <button id="Borra" onclick=" borarUltimo()"> Borrar libros de Oscar Wilde</button>
         
         <h1> Libros </h1>
         <ul id="listaDeLibros">
