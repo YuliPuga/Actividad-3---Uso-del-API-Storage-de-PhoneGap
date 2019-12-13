@@ -142,18 +142,7 @@
 		
 		    
             }
-		
-	function borartabla(){
-                db.transaction(borrarta, errorBD)
-            }
-            
-            function borratabla(tx){
-                                
-                tx.executeSql('DROP TABLE IF EXISTS libros ');
-                alert("Elemento borrado");
-            }
-	
-            
+
             </script>
     </head>
     <body >
@@ -173,7 +162,7 @@
 
         <button id="leer" onclick="leerBaseDeDatos()"> leer Base de datos </button>
         <button id="insertar" onclick="agregarItem()"> Insertar nuevo libro</button><br>
-        <button id="Borra" onclick=" borarUltimo()"> Borrar libros (Escribe el autor)</button>
+        <button id="Borra" onclick=" borarUltimo()"> Borrar libros (Escribe el ID)</button>
 	<button id="Actualizar" onclick=" actualizar()"> Actualizar</button>
         
         <h1> Libros </h1>
